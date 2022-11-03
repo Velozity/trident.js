@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://npmjs.com/package/trident.js"><img src="https://img.shields.io/npm/v/trident.js.svg?style=flat-square&color=informational"></a>
+</p>
+
 # About
 
 **Trident.js** is an extremely lightweight, and easily extensible [Oceanic](https://github.com/OceanicJS/Oceanic) client framework handling application commands, events and interactions intelligently. The main goal of the project is to make the entry level into modern Discord bot development much more accessible to new developers, but also keeping its usefulness for all developers.
