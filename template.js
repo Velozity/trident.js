@@ -19,11 +19,9 @@ const templateDir = path.resolve(__dirname, "template");
 fs.cpSync(templateDir, projectDir, { recursive: true });
 
 const projectPackageJson = require(path.join(projectDir, "package.json"));
-const thisPackage = require(path.join(currentDir, "package.json"));
 
 // Update the project's package.json with the new project name
 projectPackageJson.name = "my-trident-bot";
-projectPackageJson.dependencies["trident.js"] = `^${thisPackage.version}`;
 
 fs.writeFileSync(
   path.join(projectDir, "package.json"),
@@ -46,11 +44,16 @@ console.log(
 );
 console.log(
   chalk.default.whiteBright.bold(
-    "2. Once the bot is in your server, try out /ping"
+    "2. Start the bot with npm run start (or node index.js)"
   )
 );
 console.log(
   chalk.default.whiteBright.bold(
-    "3. Try adding your own commands in the commands folder"
+    "3. Add the bot to your server and try out the /ping command"
+  )
+);
+console.log(
+  chalk.default.whiteBright.bold(
+    "4. Try adding your own commands in the commands folder"
   )
 );
