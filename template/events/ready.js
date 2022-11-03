@@ -7,7 +7,7 @@ class Ready extends Trident.Event {
   }
 
   async execute() {
-    console.log("Ready event fired!");
+    console.log(`[/events/ready.js] Ready event fired!`);
   }
 }
 

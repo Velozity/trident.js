@@ -26,6 +26,8 @@ class Ping extends Trident.Command {
     /** We received an interaction from our /ping command! Let's send a message back with some buttons
      * to execute out receiveInteraction and receiveAnotherInteraction functions below
      */
+
+    console.log("[/commands/ping.js] You used /ping!");
     interaction.createMessage({
       content: "Text body!",
       components: [
@@ -54,30 +56,32 @@ class Ping extends Trident.Command {
   }
 
   /**
-   * @param {Trident.Oceanic.MessageInteraction} interaction Oceanic.js Interaction object
+   * @param {Trident.Oceanic.AnyCommandInteraction} interaction Oceanic.js Interaction object
    * @param {Trident.Oceanic.User} user Oceanic.js User object
    * @param {Trident.Client} trident  An instance of the client
    * @returns {Promise<void>} Return empty promise to handle potential errors
    */
   async receiveInteraction(interaction, user, trident) {
-    console.log("Received interaction!");
+    console.log("[/commands/ping.js] Received interaction 1!");
+
     return interaction.createMessage({
-      content: "Thanks!",
-      flags: 64,
+      content: "Interaction 1 worked!",
+      flags: 64, // Use the flag "64" see that only the person who interacted can see this message
     });
   }
 
   /**
-   * @param {Trident.Oceanic.MessageInteraction} interaction Oceanic.js Interaction object
+   * @param {Trident.Oceanic.AnyCommandInteraction} interaction Oceanic.js Interaction object
    * @param {Trident.Oceanic.User} user Oceanic.js User object
    * @param {Trident.Client} trident  An instance of the client
    * @returns {Promise<void>} Return empty promise to handle potential errors
    */
   async receiveAnotherInteraction(interaction, user, trident) {
-    console.log("Received interaction 2!");
+    console.log("[/commands/ping.js] Received interaction 2!");
+
     return interaction.createMessage({
-      content: "Thanks again!",
-      flags: 64,
+      content: "Well what'ya know, interaction 2 worked as well.",
+      flags: 64, // Use the flag "64" see that only the person who interacted can see this message
     });
   }
 }

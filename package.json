@@ -1,6 +1,6 @@
 {
   "name": "trident.js",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A lightweight Oceanic client framework",
   "main": "index.js",
   "bin": {
