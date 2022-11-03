@@ -10,6 +10,6 @@
   "author": "Velozity",
   "license": "ISC",
   "dependencies": {
-    "trident.js": "^1.1.3"
+    "trident.js": "^1.1.4"
   }
 }

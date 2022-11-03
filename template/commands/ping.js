@@ -80,7 +80,7 @@ class Ping extends Trident.Command {
     console.log("[/commands/ping.js] Received interaction 2!");
 
     return interaction.createMessage({
-      content: "Well what'ya know, interaction 2 worked as well.",
+      content: "Well whad'ya know, interaction 2 worked as well.",
       flags: 64, // Use the flag "64" see that only the person who interacted can see this message
     });
   }
