@@ -80,7 +80,7 @@ class Ping extends Trident.Command {
 }
 
 module.exports = new Ping();
-``
+```
 
 Recommended Project Structure
 
