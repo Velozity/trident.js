@@ -9,7 +9,7 @@ Trident.js comes with built in Embed builders!
 
 # Usage
 
-Trident Client
+Trident Client (config/trident.js)
 
 ```js
 const Trident = require("trident.js");
@@ -32,7 +32,7 @@ const tridentClient = new Trident.TridentClient({
 module.exports = tridentClient;
 ```
 
-Commands (/commands/ping.js)
+Commands (commands/ping.js)
 
 ```js
 const Trident = require("trident.js");
