@@ -1,0 +1,15 @@
+{
+  "name": "trident.js-start",
+  "version": "1.0.0",
+  "description": "Quickly start up your Trident.js bot!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Velozity",
+  "license": "ISC",
+  "dependencies": {
+    "trident.js": "^1.1.0"
+  }
+}

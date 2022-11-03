@@ -51,13 +51,8 @@ For command, interactions & event examples, see the [examples](https://github.co
 NodeJS **16.16.0** or higher is required.
 
 ```sh
-npm i trident.js
-```
-
-If you want to get right into a fresh bot with a pre-made template, you can with:
-
-```sh
-npm i trident.js-start
+npm i trident.js --save
+npx create-trident-app
 ```
 
 # [Documentation](https://google.com)
