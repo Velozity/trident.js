@@ -19,9 +19,11 @@ const templateDir = path.resolve(__dirname, "template");
 fs.cpSync(templateDir, projectDir, { recursive: true });
 
 const projectPackageJson = require(path.join(projectDir, "package.json"));
+const thisPackage = require(path.join(currentDir, "package.json"));
 
 // Update the project's package.json with the new project name
 projectPackageJson.name = "my-trident-bot";
+projectPackageJson.dependencies["trident.js"] = `^${thisPackage.version}`;
 
 fs.writeFileSync(
   path.join(projectDir, "package.json"),
