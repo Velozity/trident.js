@@ -35,3 +35,20 @@ fs.writeFileSync(
 spawn.sync("npm", ["install"], { stdio: "inherit" });
 
 console.log(chalk.bold.blue(`Trident.js starter template deployed!`));
+
+console.log(chalk.bold.green(`What's next?`));
+console.log(
+  chalk.default.whiteBright.bold(
+    "1. Navigate to /config/trident.js and paste in your bot token (https://discord.com/developers)"
+  )
+);
+console.log(
+  chalk.default.whiteBright.bold(
+    "2. Once the bot is in your server, try out /ping"
+  )
+);
+console.log(
+  chalk.default.whiteBright.bold(
+    "3. Try adding your own commands in the commands folder"
+  )
+);
