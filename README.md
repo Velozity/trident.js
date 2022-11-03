@@ -34,7 +34,7 @@ module.exports = tridentClient;
 
 Commands (/commands/ping.js)
 
-````js
+```js
 const Trident = require("trident.js");
 
 class Ping extends Trident.Command {
@@ -93,7 +93,7 @@ Project/
 ├── events/
 │   └── ready.js
 └── index.js
-````
+```
 
 For command, interactions & event examples, see the [examples](https://github.com/Velozity/trident.js/tree/master/examples) folder on GitHub.
 
