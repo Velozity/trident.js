@@ -49,6 +49,7 @@ declare namespace Trident {
     allowDms?: boolean | false;
     name: string;
     description: string;
+    options: Array<any>;
     guilds?: Array<string> | Promise<Array<string>>;
   }
 

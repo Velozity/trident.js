@@ -14,6 +14,13 @@ class Ping extends Trident.Command {
     //   return null;
     // };
     this.type = Trident.Oceanic.ApplicationCommandTypes.CHAT_INPUT;
+    // this.options = [
+    //   {
+    //     name: "prompt",
+    //     description: "The prompt to generate",
+    //     type: Trident.Oceanic.ApplicationCommandOptionTypes.STRING,
+    //   },
+    // ];
   }
 
   /**
