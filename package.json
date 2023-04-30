@@ -1,6 +1,6 @@
 {
   "name": "trident.js",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A lightweight Oceanic client framework",
   "main": "index.js",
   "bin": {
@@ -24,6 +24,10 @@
   },
   "author": "Velozity",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velozity/trident.js.git"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
