@@ -50,6 +50,7 @@ declare namespace Trident {
     name: string;
     description: string;
     options: Array<any>;
+    defaultMemberPermissions: null | string;
     guilds?: Array<string> | Promise<Array<string>>;
   }
 
