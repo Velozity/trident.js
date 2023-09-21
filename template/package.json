@@ -1,6 +1,6 @@
 {
   "name": "my-trident-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quickly start up your Trident.js bot!",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,6 @@
   "author": "Velozity",
   "license": "ISC",
   "dependencies": {
-    "trident.js": "^1.1.5"
+    "trident.js": "latest"
   }
 }
