@@ -15,8 +15,7 @@ Trident Client (config/trident.js)
 const Trident = require("trident.js");
 
 const tridentClient = new Trident.TridentClient({
-  token:
-    "" // create a bot and generate a token to put here, https://discord.com/developers/applications
+  token: process.env.DISCORD_TOKEN,
   intents: [
     "DIRECT_MESSAGES",
     "GUILDS",
@@ -95,7 +94,7 @@ Project/
 └── index.js
 ```
 
-For command, interactions & event examples, see the [examples](https://github.com/Velozity/trident.js/tree/master/examples) folder on GitHub.
+For command, interactions & event examples, see the [examples](https://github.com/Velozity/trident.js/tree/master/examples) folder on GitHub or use the starter template provided below.
 
 <hr>
 
@@ -110,7 +109,7 @@ npx create-trident-app
 
 # [Documentation](https://google.com)
 
-Documentation is coming soon.
+Documentation is WIP.
 
 # License
 

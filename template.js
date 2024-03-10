@@ -36,7 +36,7 @@ console.log(chalk.bold.blue(`Trident.js starter template deployed!`));
 console.log(chalk.bold.green(`What's next?`));
 console.log(
   chalk.default.whiteBright.bold(
-    "1. Navigate to /config/trident.js and paste in your bot token (https://discord.com/developers)"
+    "1. Navigate to your .env file and paste in your discord bot token (https://discord.com/developers)"
   )
 );
 console.log(
