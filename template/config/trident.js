@@ -1,8 +1,7 @@
 const Trident = require("trident.js");
 
 const tridentClient = new Trident.TridentClient({
-  token:
-    "" /** Create a bot and generate a token to put here, https://discord.com/developers/applications */,
+  token: process.env.DISCORD_TOKEN,
   intents: [
     "GUILD_PRESENCES",
     "GUILD_MESSAGES",

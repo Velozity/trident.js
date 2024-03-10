@@ -1,6 +1,6 @@
 {
   "name": "trident.js",
-  "version": "1.2.7",
+  "version": "1.2.9",
   "description": "A lightweight Oceanic client framework",
   "main": "index.js",
   "bin": {
@@ -14,7 +14,6 @@
       },
       "./index.js"
     ],
-    "./": "./",
     "./esm": "./esm.mjs"
   },
   "typings": "./index.d.ts",

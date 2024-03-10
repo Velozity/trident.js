@@ -7,20 +7,28 @@ class Ping extends Trident.Command {
     this.name = "ping";
     this.description = "Use me!";
     this.allowDms = true;
-    this.guilds = null; // Global
-    // this.guilds Must return NULL/Undefined for global command, string array or async function that returns string array.
-    // this.guilds = async () => {
-    //   // getGuildIdsFromDatabase();
-    //   return null;
-    // };
+    this.guilds = null;
+
+    /** this.guilds Must return NULL/Undefined for global command, string array or async function that returns string array.
+    
+    Example for specific guilds:
+    this.guilds = async () => {
+      // getGuildIdsFromDatabase();
+      return null;
+    }; */
+
     this.type = Trident.Oceanic.ApplicationCommandTypes.CHAT_INPUT;
-    // this.options = [
-    //   {
-    //     name: "prompt",
-    //     description: "The prompt to generate",
-    //     type: Trident.Oceanic.ApplicationCommandOptionTypes.STRING,
-    //   },
-    // ];
+
+    /** 
+    If you wanted the ping command to require parameters from the users, set them with this.options
+
+    this.options = [
+      {
+        name: "prompt",
+        description: "The prompt to generate",
+        type: Trident.Oceanic.ApplicationCommandOptionTypes.STRING,
+      },
+    ]; */
   }
 
   /**
