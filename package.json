@@ -34,7 +34,6 @@
     "juration": "^0.1.1",
     "oceanic.js": "^1.12.0",
     "readdirp": "^3.6.0",
-    "trident.js": "^1.1.0",
     "tslib": "^2.4.1"
   },
   "devDependencies": {
