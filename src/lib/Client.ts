@@ -1,8 +1,6 @@
 import {
   Client,
-  ApplicationCommand,
   CreateApplicationCommandOptions,
-  ApplicationCommandTypes,
   InteractionTypes,
   AnyInteractionGateway,
 } from "oceanic.js";
@@ -60,6 +58,31 @@ export class TridentClient extends Client {
             this.logger.log(
               "error",
               `Error executing command ${command.name}: ${error}`
+            );
+          }
+        }
+      } else if (interaction.type === InteractionTypes.MESSAGE_COMPONENT) {
+        const command = this.commands.get(
+          (interaction.message.interactionMetadata as any).name
+        );
+        if (
+          command &&
+          typeof (command as any)[interaction.data.customID] === "function"
+        ) {
+          try {
+            await (command as any)[interaction.data.customID](
+              interaction,
+              interaction.user,
+              this
+            );
+            this.logger.log(
+              "command",
+              `Executed component interaction: ${interaction.data.customID} for command: ${command.name}`
+            );
+          } catch (error) {
+            this.logger.log(
+              "error",
+              `Error executing component interaction ${interaction.data.customID} for command ${command.name}: ${error}`
             );
           }
         }
@@ -141,9 +164,7 @@ export class TridentClient extends Client {
       }));
 
     try {
-      const commands = await this.application.bulkEditGlobalCommands(
-        commandsToRegister
-      );
+      await this.application.bulkEditGlobalCommands(commandsToRegister);
       this.commands = this._commandsToRegister;
 
       this.logger.log(
