@@ -1,5 +1,6 @@
 import {
   AnyInteractionGateway,
+  ApplicationCommandOptions,
   ApplicationCommandTypes,
   User,
 } from "oceanic.js";
@@ -14,7 +15,7 @@ export abstract class Command {
   public allowDms: boolean;
   public nameLocalizations?: Record<string, string>;
   public descriptionLocalizations?: Record<string, string>;
-  public options?: any[];
+  public options?: Array<ApplicationCommandOptions>;
   public defaultMemberPermissions?: string | null;
 
   constructor(options?: CommandOptions) {

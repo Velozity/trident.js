@@ -1,6 +1,6 @@
 {
   "name": "trident.js",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "description": "A lightweight Oceanic client framework",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

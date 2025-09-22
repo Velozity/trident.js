@@ -9,15 +9,18 @@ import { Command } from "./Command";
 import { Logger } from "./Logger";
 import * as fs from "fs";
 import * as path from "path";
+import * as crypto from "crypto";
 
 export class TridentClient extends Client {
   public readonly token: string;
   public readonly prefix?: string;
   public readonly clearGuildCommandsOnStart: boolean;
+  public readonly forceCommandRegistration: boolean;
   public readonly ignoreDirectories: string[];
   public readonly logger: Logger;
   private _commandsToRegister: Map<string, Command> = new Map();
   private commands: Map<string, Command> = new Map();
+  private readonly commandCacheFile: string;
 
   constructor(options: TridentClientOptions) {
     super({
@@ -31,12 +34,17 @@ export class TridentClient extends Client {
     this.token = options.token;
     this.prefix = options.prefix;
     this.clearGuildCommandsOnStart = options.clearGuildCommandsOnStart ?? false;
+    this.forceCommandRegistration = options.forceCommandRegistration ?? false;
     this.ignoreDirectories = options.ignoreDirectories ?? [
       "node_modules",
       ".git",
       "dist",
     ];
     this.logger = new Logger();
+    this.commandCacheFile = path.join(
+      process.cwd(),
+      ".trident-commands-cache.json"
+    );
 
     this.setupEventHandlers();
   }
@@ -163,9 +171,30 @@ export class TridentClient extends Client {
         defaultMemberPermissions: cmd.defaultMemberPermissions,
       }));
 
+    // Check if commands have changed
+    const commandsHash = this.generateCommandsHash(commandsToRegister);
+    const cachedHash = this.getCachedCommandsHash();
+
+    if (
+      commandsHash === cachedHash &&
+      !this.clearGuildCommandsOnStart &&
+      !this.forceCommandRegistration
+    ) {
+      this.logger.log(
+        "debug",
+        "Commands haven't changed, skipping registration"
+      );
+      this.commands = this._commandsToRegister;
+      return;
+    }
+
     try {
+      this.logger.log("debug", "Commands changed, registering with Discord...");
       await this.application.bulkEditGlobalCommands(commandsToRegister);
       this.commands = this._commandsToRegister;
+
+      // Save the new hash
+      this.saveCachedCommandsHash(commandsHash);
 
       this.logger.log(
         "success",
@@ -203,6 +232,39 @@ export class TridentClient extends Client {
     } catch (error) {
       this.logger.log("error", `Failed to start client: ${error}`);
       throw error;
+    }
+  }
+
+  private generateCommandsHash(
+    commands: Array<CreateApplicationCommandOptions>
+  ): string {
+    const commandsString = JSON.stringify(commands, null, 0);
+    return crypto.createHash("md5").update(commandsString).digest("hex");
+  }
+
+  private getCachedCommandsHash(): string | null {
+    try {
+      if (fs.existsSync(this.commandCacheFile)) {
+        const cache = JSON.parse(
+          fs.readFileSync(this.commandCacheFile, "utf-8")
+        );
+        return cache.hash || null;
+      }
+    } catch (error) {
+      this.logger.log("debug", `Failed to read commands cache: ${error}`);
+    }
+    return null;
+  }
+
+  private saveCachedCommandsHash(hash: string): void {
+    try {
+      const cache = {
+        hash,
+        timestamp: Date.now(),
+      };
+      fs.writeFileSync(this.commandCacheFile, JSON.stringify(cache, null, 2));
+    } catch (error) {
+      this.logger.log("debug", `Failed to save commands cache: ${error}`);
     }
   }
 }

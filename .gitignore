@@ -3,3 +3,4 @@ tests
 dist
 dist-esm
 *.log
+.trident-commands-cache.json

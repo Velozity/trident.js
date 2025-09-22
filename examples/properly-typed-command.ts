@@ -6,6 +6,7 @@ import {
   TridentClient,
   ComponentInteraction,
   CommandInteraction,
+  ApplicationCommandOptionTypes,
 } from "../src";
 
 export default class Ping extends Command {
@@ -16,7 +17,20 @@ export default class Ping extends Command {
       allowDms: true,
       guilds: null, // null for global, array of guild ids to specify guilds or an async function that returns array of ids
       type: ApplicationCommandTypes.CHAT_INPUT,
-      options: [],
+      options: [
+        {
+          type: ApplicationCommandOptionTypes.STRING,
+          name: "text",
+          description: "The text to echo back",
+          required: true,
+        },
+        {
+          type: ApplicationCommandOptionTypes.INTEGER,
+          name: "times",
+          description: "How many times to repeat",
+          required: false,
+        },
+      ],
     });
   }
 

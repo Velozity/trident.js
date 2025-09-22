@@ -17,15 +17,14 @@ export {
   User,
   ComponentInteraction,
   CommandInteraction,
+  ApplicationCommandOptionTypes,
+  ChannelTypes,
 } from "oceanic.js";
 
 // Create a namespace for easier access to Oceanic.js types
 import * as OceanicTypes from "oceanic.js";
 export namespace Oceanic {
-  export const ApplicationCommandTypes = OceanicTypes.ApplicationCommandTypes;
-  export const InteractionTypes = OceanicTypes.InteractionTypes;
-  export const ComponentTypes = OceanicTypes.ComponentTypes;
-  export const ButtonStyles = OceanicTypes.ButtonStyles;
+  export const Types = OceanicTypes;
 }
 
 // Default export for convenience

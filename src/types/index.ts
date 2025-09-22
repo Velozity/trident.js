@@ -6,6 +6,7 @@
   EmbedFooter,
   EmbedAuthor,
   IntentNames,
+  ApplicationCommandOptions,
 } from "oceanic.js";
 
 export type LogLevel =
@@ -21,6 +22,7 @@ export interface TridentClientOptions {
   prefix?: string;
   intents: number | Array<IntentNames | "ALL" | number>;
   clearGuildCommandsOnStart?: boolean;
+  forceCommandRegistration?: boolean;
   ignoreDirectories?: string[];
   oceanicOptions?: Omit<ClientOptions, "auth" | "gateway">;
 }
@@ -33,7 +35,7 @@ export interface CommandOptions {
   allowDms?: boolean;
   nameLocalizations?: Record<string, string>;
   descriptionLocalizations?: Record<string, string>;
-  options?: any[];
+  options?: Array<ApplicationCommandOptions>;
   defaultMemberPermissions?: string | null;
 }
 
